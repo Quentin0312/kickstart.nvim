@@ -283,7 +283,18 @@ require('lazy').setup({
       },
     },
   },
-
+  -- Using Lazy
+  {
+    'navarasu/onedark.nvim',
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require('onedark').setup {
+        style = 'darker',
+      }
+      -- Enable theme
+      require('onedark').load()
+    end,
+  },
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
