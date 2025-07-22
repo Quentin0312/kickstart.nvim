@@ -271,6 +271,19 @@ require('lazy').setup({
   -- options to `gitsigns.nvim`.
   --
   -- See `:help gitsigns` to understand what the configuration keys do
+  {
+    'Mofiqul/vscode.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('vscode').setup {
+        -- Optional settings
+        italic_comments = true,
+        disable_nvimtree_bg = true,
+      }
+      require('vscode').load()
+    end,
+  },
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
@@ -284,17 +297,17 @@ require('lazy').setup({
     },
   },
   -- Using Lazy
-  {
-    'navarasu/onedark.nvim',
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      require('onedark').setup {
-        style = 'darker',
-      }
-      -- Enable theme
-      require('onedark').load()
-    end,
-  },
+  -- {
+  --   'navarasu/onedark.nvim',
+  --   priority = 1000, -- make sure to load this before all the other start plugins
+  --   config = function()
+  --     require('onedark').setup {
+  --       style = 'darker',
+  --     }
+  --     -- Enable theme
+  --     require('onedark').load()
+  --   end,
+  -- },
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
